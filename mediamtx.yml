@@ -1,0 +1,20 @@
+# MediaMTX config for E63Tube: RTSP only, one on-demand path per YouTube video.
+# Unlisted settings use MediaMTX defaults. Started by `python e63tube.py`.
+logLevel: info
+rtsp: true
+rtspTransports: [udp, tcp]
+rtspAddress: :8554
+rtpAddress: :8000
+rtcpAddress: :8001
+rtmp: false
+hls: false
+webrtc: false
+srt: false
+moq: false
+
+paths:
+  # rtsp://<pc-ip>:8554/<video id>  (an optional .3gp suffix is accepted too)
+  "~^([A-Za-z0-9_-]{11})(\\.3gp)?$":
+    runOnDemand: python e63tube.py stream
+    runOnDemandStartTimeout: 60s
+    runOnDemandCloseAfter: 5s
