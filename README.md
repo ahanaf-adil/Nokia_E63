@@ -12,6 +12,7 @@ The PC searches and downloads with `yt-dlp`, converts to formats the E63 plays, 
    - `mediamtx.exe` from [MediaMTX releases](https://github.com/bluenviron/mediamtx/releases) (RTSP streaming; config in `mediamtx.yml`)
 3. `python e63tube.py test` (self-check)
 4. `python e63tube.py` (also starts MediaMTX and creates `send/`)
+   To start it automatically at boot (no login needed), run `autostart.ps1` once from an elevated PowerShell. Output goes to `cache\server.log`.
 5. Allow in the PC firewall: TCP 8063 (pages/downloads), TCP 8554 and UDP 8000-8001 (streaming).
 
 If the PC runs a VPN, YouTube may block downloads ("confirm you're not a bot"): exclude `bin\yt-dlp.exe` with split tunnelling and allow LAN access.
