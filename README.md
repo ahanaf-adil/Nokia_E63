@@ -35,4 +35,9 @@ Audio and Video convert on the PC first; the page refreshes until **Download / p
 
 ZIPs are built once and cached; adding or changing a file in the folder makes a new one.
 
+## Batch songs from a list (on the PC)
+Write a playlist file, one `Artist - Title` per line, then:
+`python songs.py send\playlist.txt send\Songs`
+Each song is found via a YouTube lyrics-video search (studio audio, no video intros), checked that the result's title contains the song title, converted to the same 64 kbps AAC `.m4a` and tagged. Add `[no lyrics]` for instrumentals and `=> Name` for the name shown on the phone (e.g. romanised Korean, which the E63 can't display). Matches are logged in `_matches.txt`; songs already done are skipped. Copy the results to the card's `Sounds\Digital` folder or download them via **PC files**.
+
 Keep yt-dlp updated (`bin\yt-dlp.exe -U`); YouTube changes break old versions. LAN only: don't port-forward this.
